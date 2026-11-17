@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data:; connect-src https://api.github.com; base-uri 'none'; form-action 'none'">
+<meta name="robots" content="noindex, nofollow">
+<meta name="referrer" content="no-referrer">
+<title>База</title>
+<link rel="icon" href="data:,">
+<link rel="stylesheet" href="fonts.css">
+<link rel="stylesheet" href="app.css">
+<link rel="stylesheet" href="shell.css">
+</head>
+<body>
+<div class="gate" id="wait">
+  <p id="wait-msg">Открываю…</p>
+  <progress id="wait-bar" hidden></progress>
+  <button type="button" id="wait-retry" hidden>Попробовать ещё раз</button>
+</div>
+
+<form class="gate" id="login" hidden>
+  <div class="card">
+    <h1>Вход</h1>
+    <label for="repo">Репозиторий</label>
+    <input id="repo" name="username" autocomplete="username" autocapitalize="none" spellcheck="false" placeholder="владелец/название">
+    <label for="token">Ключ доступа</label>
+    <input id="token" name="password" type="password" autocomplete="current-password" placeholder="github_pat_…">
+    <button id="login-go">Войти</button>
+    <p class="msg" id="login-msg" role="status"></p>
+    <p class="hint">Ключ хранится только в этом браузере и передаётся только GitHub.</p>
+  </div>
+</form>
+
+<div id="app-root" hidden>
+<div class="app">
+<header class="top">
+  <a class="brand" href="#companies"></a>
+  <nav class="tabs" aria-label="Разделы">
+    <a href="#companies" data-tab="companies">Компании</a>
+    <a href="#journal" data-tab="journal">Журнал контактов</a>
+    <a href="#duties" data-tab="duties">Обязательства</a>
+  </nav>
+  <div class="search">
+    <label class="vh" for="q">Поиск</label>
+    <input id="q" type="search" placeholder="Поиск по компаниям, людям и переписке" autocomplete="off">
+  </div>
+  <span class="updated" id="updated"></span>
+</header>
+<header class="mtop" id="mtop"></header>
+<div class="msearch" id="msearch">
+  <label class="vh" for="mq">Поиск</label>
+  <input id="mq" type="search" placeholder="Поиск по компаниям, людям и переписке" autocomplete="off">
+</div>
+<div class="page" id="page"></div>
+<nav class="mtabs" aria-label="Разделы">
+  <a href="#companies" data-tab="companies"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="3" width="16" height="18" rx="1"></rect><path d="M9 8h1M14 8h1M9 12h1M14 12h1M10 21v-4h4v4"></path></svg><span>Компании</span></a>
+  <a href="#journal" data-tab="journal"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M8 6h12M8 12h12M8 18h12M4 6h.01M4 12h.01M4 18h.01"></path></svg><span>Журнал</span></a>
+  <a href="#duties" data-tab="duties"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"></rect><path d="M8 12l3 3 5-6"></path></svg><span>Обязательства</span></a>
+</nav>
+</div>
+<footer class="foot">
+  <span id="sync-note"></span>
+  <button type="button" id="refresh">Обновить</button>
+  <button type="button" id="logout">Выйти</button>
+</footer>
+</div>
+
+<div class="bar" id="bar" hidden>
+  <span id="bar-msg"></span>
+  <button type="button" id="bar-btn">Показать</button>
+</div>
+
+<script src="markdown-it.min.js"></script>
+<script src="parse.js"></script>
+<script src="app.js"></script>
+<script src="shell.js"></script>
+</body>
+</html>

@@ -1,0 +1,18 @@
+/* Вход, ожидание и служебная строка. Цвета — из переменных оформления страницы. */
+.gate{position:fixed;inset:0;z-index:50;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;padding:24px;background:var(--bg);color:var(--soft);text-align:center}
+.gate[hidden],.bar[hidden],#app-root[hidden]{display:none}
+.gate progress{width:min(320px,80vw);height:6px;accent-color:var(--accent)}
+.gate button,.bar button{padding:10px 18px;border:0;border-radius:8px;background:var(--accent);color:#fff;font-weight:500;cursor:pointer}
+.gate button:disabled{opacity:.6;cursor:default}
+.gate .card{width:min(380px,100%);display:flex;flex-direction:column;gap:8px;padding:28px 24px;border:1px solid var(--line);border-radius:12px;background:var(--surface);text-align:left}
+.gate h1{margin:0 0 8px;font-size:20px;font-weight:600;color:var(--ink)}
+.gate label{font-size:13px;color:var(--muted)}
+.gate input{width:100%;padding:10px 12px;border:1px solid var(--line-strong);border-radius:8px;background:var(--surface);color:var(--ink);font:inherit;font-size:16px}
+.gate .card button{margin-top:10px}
+.gate .msg{min-height:1.5em;margin:6px 0 0;color:var(--amber-ink)}
+.gate .hint{margin:0;font-size:12px;color:var(--muted)}
+.foot{display:flex;flex-wrap:wrap;align-items:center;justify-content:flex-end;gap:6px 16px;padding:10px 20px 96px;font-size:12px;color:var(--muted)}
+.foot #sync-note{margin-right:auto;color:var(--amber-ink)}
+.foot button{padding:4px 0;border:0;background:none;color:var(--muted);text-decoration:underline;cursor:pointer}
+.bar{position:fixed;left:50%;bottom:84px;z-index:40;transform:translateX(-50%);display:flex;align-items:center;gap:12px;padding:10px 12px 10px 16px;border-radius:10px;background:var(--ink);color:#fff;box-shadow:0 6px 24px rgba(20,24,31,.25)}
+.bar button{padding:6px 12px}
